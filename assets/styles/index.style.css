@@ -54,7 +54,11 @@ input:focus-visible {
 }
 
 .cabecalho {
-  background: linear-gradient(135deg, var(--cor-primaria-escura), var(--cor-primaria));
+  background: linear-gradient(
+    135deg,
+    var(--cor-primaria-escura),
+    var(--cor-primaria)
+  );
   color: #ffffff;
   padding: 2rem 1rem;
 }
@@ -69,9 +73,12 @@ input:focus-visible {
 }
 
 .cabecalho__logo {
-  width: 4rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: auto;
   object-fit: contain;
+  background-color: #ffffff;
+  padding: 0.35rem;
+  border-radius: 0.75rem;
 }
 
 .cabecalho h1 {
@@ -308,6 +315,7 @@ main {
 
 @media (min-width: 48rem) {
   .cabecalho__conteudo {
+    width: 5.5rem;
     flex-direction: row;
     align-items: center;
   }
