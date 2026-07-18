@@ -1,146 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="description"
-    content="SkillMatch Web: aplicação que compara habilidades de candidatos com vagas front-end e mostra compatibilidade, habilidades atendidas e recomendações de estudo."
-  >
+    <meta
+      name="description"
+      content="SkillMatch Web: aplicação que compara habilidades de candidatos com vagas front-end e mostra compatibilidade, habilidades atendidas e recomendações de estudo."
+    />
 
-  <title>SkillMatch Web | Compatibilidade com Vagas Front-End</title>
+    <title>SkillMatch Web | Compatibilidade com Vagas Front-End</title>
 
-  <link rel="stylesheet" href="./assets/styles/index.style.css">
-</head>
+    <link rel="stylesheet" href="./assets/styles/index.style.css" />
+  </head>
 
-<body>
-  <header class="cabecalho">
-    <div class="cabecalho__conteudo">
-      <img
-         src="./assets/img/logo_skillmatch.png"
-  alt="Logo do SkillMatch Web"
-  class="cabecalho__logo"
+  <body>
+    <header class="cabecalho">
+      <div class="cabecalho__conteudo">
+        <img
+          src="./assets/img/logo_skillmatch.png"
+          alt="Logo do SkillMatch Web"
+          class="cabecalho__logo"
+        />
+
+        <div>
+          <h1>SkillMatch Web</h1>
+          <p>
+            Descubra quais vagas front-end combinam melhor com o seu perfil.
+          </p>
+        </div>
+      </div>
+
+      <nav class="navegacao" aria-label="Navegação principal">
+        <a href="#perfil">Perfil</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#recomendacao">Recomendação</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="secao introducao" aria-labelledby="titulo-introducao">
+        <h2 id="titulo-introducao">Analise sua compatibilidade com vagas</h2>
+        <p>
+          Preencha seu perfil com nome, área de interesse, habilidades e tempo
+          de experiência. O sistema vai comparar seus dados com vagas
+          cadastradas e mostrar o percentual de compatibilidade.
+        </p>
+      </section>
+
+      <section id="perfil" class="secao perfil" aria-labelledby="titulo-perfil">
+        <h2 id="titulo-perfil">Perfil do candidato</h2>
+
+        <form id="form-perfil" class="formulario" novalidate>
+          <div class="campo">
+            <label for="nome">Nome</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Ex.: Tainara"
+              required
+            />
+            <span
+              class="mensagem-erro"
+              id="erro-nome"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <div class="campo">
+            <label for="area">Área de interesse</label>
+            <input
+              type="text"
+              id="area"
+              name="area"
+              placeholder="Ex.: Front-End"
+              required
+            />
+            <span
+              class="mensagem-erro"
+              id="erro-area"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <div class="campo">
+            <label for="habilidades">Habilidades</label>
+            <input
+              type="text"
+              id="habilidades"
+              name="habilidades"
+              placeholder="Ex.: HTML, CSS, JavaScript, Git"
+              required
+            />
+            <small>Separe as habilidades por vírgula.</small>
+            <span
+              class="mensagem-erro"
+              id="erro-habilidades"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <div class="campo">
+            <label for="experiencia">Experiência em meses</label>
+            <input
+              type="number"
+              id="experiencia"
+              name="experiencia"
+              min="0"
+              placeholder="Ex.: 3"
+              required
+            />
+            <span
+              class="mensagem-erro"
+              id="erro-experiencia"
+              aria-live="polite"
+            ></span>
+          </div>
+
+          <button type="submit" class="botao-principal">
+            Analisar compatibilidade
+          </button>
+        </form>
+      </section>
+
+      <section class="secao status" aria-labelledby="titulo-status">
+        <h2 id="titulo-status">Status da análise</h2>
+        <p id="mensagem-status" aria-live="polite">
+          Preencha o formulário para iniciar a análise.
+        </p>
+      </section>
+
+      <section
+        id="resultados"
+        class="secao resultados"
+        aria-labelledby="titulo-resultados"
       >
+        <h2 id="titulo-resultados">Resultados encontrados</h2>
 
-      <div>
-        <h1>SkillMatch Web</h1>
-        <p>Descubra quais vagas front-end combinam melhor com o seu perfil.</p>
-      </div>
-    </div>
+        <div id="perfil-salvo" class="perfil-salvo" aria-live="polite"></div>
 
-    <nav class="navegacao" aria-label="Navegação principal">
-      <a href="#perfil">Perfil</a>
-      <a href="#resultados">Resultados</a>
-      <a href="#recomendacao">Recomendação</a>
-    </nav>
-  </header>
+        <div id="cards-vagas" class="cards-vagas">
+          <!-- Os cards serão criados pelo JavaScript -->
+        </div>
+      </section>
 
-  <main>
-    <section class="secao introducao" aria-labelledby="titulo-introducao">
-      <h2 id="titulo-introducao">Analise sua compatibilidade com vagas</h2>
+      <section
+        id="recomendacao"
+        class="secao recomendacao"
+        aria-labelledby="titulo-recomendacao"
+      >
+        <h2 id="titulo-recomendacao">Melhor vaga e recomendação</h2>
+
+        <div id="melhor-vaga" class="melhor-vaga">
+          <!-- A melhor vaga será exibida pelo JavaScript -->
+        </div>
+
+        <div id="recomendacao-estudo" class="recomendacao-estudo">
+          <!-- A recomendação será exibida pelo JavaScript -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
       <p>
-        Preencha seu perfil com nome, área de interesse, habilidades e tempo de experiência.
-        O sistema vai comparar seus dados com vagas cadastradas e mostrar o percentual de compatibilidade.
+        SkillMatch Web — Projeto Avaliativo Final do Módulo 1 | Front-End React
+        T2
       </p>
-    </section>
+    </footer>
 
-    <section id="perfil" class="secao perfil" aria-labelledby="titulo-perfil">
-      <h2 id="titulo-perfil">Perfil do candidato</h2>
-
-      <form id="form-perfil" class="formulario" novalidate>
-        <div class="campo">
-          <label for="nome">Nome</label>
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            placeholder="Ex.: Tainara"
-            required
-          >
-          <span class="mensagem-erro" id="erro-nome" aria-live="polite"></span>
-        </div>
-
-        <div class="campo">
-          <label for="area">Área de interesse</label>
-          <input
-            type="text"
-            id="area"
-            name="area"
-            placeholder="Ex.: Front-End"
-            required
-          >
-          <span class="mensagem-erro" id="erro-area" aria-live="polite"></span>
-        </div>
-
-        <div class="campo">
-          <label for="habilidades">Habilidades</label>
-          <input
-            type="text"
-            id="habilidades"
-            name="habilidades"
-            placeholder="Ex.: HTML, CSS, JavaScript, Git"
-            required
-          >
-          <small>Separe as habilidades por vírgula.</small>
-          <span class="mensagem-erro" id="erro-habilidades" aria-live="polite"></span>
-        </div>
-
-        <div class="campo">
-          <label for="experiencia">Experiência em meses</label>
-          <input
-            type="number"
-            id="experiencia"
-            name="experiencia"
-            min="0"
-            placeholder="Ex.: 3"
-            required
-          >
-          <span class="mensagem-erro" id="erro-experiencia" aria-live="polite"></span>
-        </div>
-
-        <button type="submit" class="botao-principal">
-          Analisar compatibilidade
-        </button>
-      </form>
-    </section>
-
-    <section class="secao status" aria-labelledby="titulo-status">
-      <h2 id="titulo-status">Status da análise</h2>
-      <p id="mensagem-status" aria-live="polite">
-        Preencha o formulário para iniciar a análise.
-      </p>
-    </section>
-
-    <section id="resultados" class="secao resultados" aria-labelledby="titulo-resultados">
-      <h2 id="titulo-resultados">Resultados encontrados</h2>
-
-      <div id="perfil-salvo" class="perfil-salvo" aria-live="polite"></div>
-
-      <div id="cards-vagas" class="cards-vagas">
-        <!-- Os cards serão criados pelo JavaScript -->
-      </div>
-    </section>
-
-    <section id="recomendacao" class="secao recomendacao" aria-labelledby="titulo-recomendacao">
-      <h2 id="titulo-recomendacao">Melhor vaga e recomendação</h2>
-
-      <div id="melhor-vaga" class="melhor-vaga">
-        <!-- A melhor vaga será exibida pelo JavaScript -->
-      </div>
-
-      <div id="recomendacao-estudo" class="recomendacao-estudo">
-        <!-- A recomendação será exibida pelo JavaScript -->
-      </div>
-    </section>
-  </main>
-
-  <footer class="rodape">
-    <p>
-      SkillMatch Web — Projeto Avaliativo Final do Módulo 1 | Front-End React T2
-    </p>
-  </footer>
-
-  <script type="module" src="./assets/scripts/main.js"></script>
-</body>
+    <script type="module" src="./assets/scripts/main.js"></script>
+  </body>
 </html>
