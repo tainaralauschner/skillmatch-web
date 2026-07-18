@@ -1,20 +1,25 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <!-- Configurações básicas da página -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Descrição usada para SEO -->
     <meta
       name="description"
       content="SkillMatch Web: aplicação que compara habilidades de candidatos com vagas front-end e mostra compatibilidade, habilidades atendidas e recomendações de estudo."
     />
 
+    <!-- Título exibido na aba do navegador -->
     <title>SkillMatch Web | Compatibilidade com Vagas Front-End</title>
 
+    <!-- Arquivo CSS externo -->
     <link rel="stylesheet" href="./assets/styles/index.style.css" />
   </head>
 
   <body>
+    <!-- Cabeçalho principal da aplicação -->
     <header class="cabecalho">
       <div class="cabecalho__conteudo">
         <img
@@ -31,6 +36,7 @@
         </div>
       </div>
 
+      <!-- Navegação interna da página -->
       <nav class="navegacao" aria-label="Navegação principal">
         <a href="#perfil">Perfil</a>
         <a href="#resultados">Resultados</a>
@@ -39,6 +45,7 @@
     </header>
 
     <main>
+      <!-- Introdução sobre o objetivo da aplicação -->
       <section class="secao introducao" aria-labelledby="titulo-introducao">
         <h2 id="titulo-introducao">Analise sua compatibilidade com vagas</h2>
         <p>
@@ -48,6 +55,7 @@
         </p>
       </section>
 
+      <!-- Formulário usado para montar o perfil do candidato -->
       <section id="perfil" class="secao perfil" aria-labelledby="titulo-perfil">
         <h2 id="titulo-perfil">Perfil do candidato</h2>
 
@@ -124,6 +132,7 @@
         </form>
       </section>
 
+      <!-- Área de mensagens sobre o andamento da análise -->
       <section class="secao status" aria-labelledby="titulo-status">
         <h2 id="titulo-status">Status da análise</h2>
         <p id="mensagem-status" aria-live="polite">
@@ -131,6 +140,7 @@
         </p>
       </section>
 
+      <!-- Área onde o JavaScript renderiza o perfil e os cards das vagas -->
       <section
         id="resultados"
         class="secao resultados"
@@ -145,6 +155,7 @@
         </div>
       </section>
 
+      <!-- Área onde o JavaScript exibe a melhor vaga e a recomendação -->
       <section
         id="recomendacao"
         class="secao recomendacao"
@@ -162,6 +173,7 @@
       </section>
     </main>
 
+    <!-- Rodapé da aplicação -->
     <footer class="rodape">
       <p>
         SkillMatch Web — Projeto Avaliativo Final do Módulo 1 | Front-End React
@@ -169,6 +181,7 @@
       </p>
     </footer>
 
+    <!-- Arquivo principal JavaScript usando módulos ES -->
     <script type="module" src="./assets/scripts/main.js"></script>
   </body>
 </html>
