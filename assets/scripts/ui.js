@@ -37,11 +37,14 @@ export function capturarDadosFormulario(elementos) {
     .map((habilidade) => habilidade.trim())
     .filter((habilidade) => habilidade !== "");
 
+  const experienciaDigitada = elementos.experiencia.value.trim();
+
   return {
     nome: elementos.nome.value.trim(),
     area: elementos.area.value.trim(),
     habilidades,
-    experienciaMeses: Number(elementos.experiencia.value),
+    experienciaMeses:
+      experienciaDigitada === "" ? NaN : Number(experienciaDigitada),
   };
 }
 
