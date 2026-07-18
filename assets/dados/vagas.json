@@ -1,16 +1,62 @@
 [
   {
-    "titulo": "Desenvolvedor Front-end",
-    "empresa": "TechNova",
-    "cidade": "São Paulo",
+    "id": 1,
+    "empresa": "TechStart",
+    "cargo": "Desenvolvedora Front-End Júnior",
+    "requisitos": ["HTML", "CSS", "JavaScript", "Git"],
+    "salario": 3200,
     "modalidade": "Remoto",
-    "skills": ["HTML", "CSS", "JavaScript"]
+    "senioridade": "Júnior",
+    "stack": "Front-End"
   },
   {
-    "titulo": "Analista de Dados",
-    "empresa": "DataFlow",
-    "cidade": "Rio de Janeiro",
+    "id": 2,
+    "empresa": "CodeLab",
+    "cargo": "Assistente de Desenvolvimento Web",
+    "requisitos": ["HTML", "CSS", "JavaScript", "Responsividade"],
+    "salario": 2800,
     "modalidade": "Híbrido",
-    "skills": ["SQL", "Python", "Power BI"]
+    "senioridade": "Entrada",
+    "stack": "Front-End"
+  },
+  {
+    "id": 3,
+    "empresa": "WebSolutions",
+    "cargo": "Analista Front-End Júnior",
+    "requisitos": ["JavaScript", "DOM", "Fetch", "GitHub"],
+    "salario": 3800,
+    "modalidade": "Remoto",
+    "senioridade": "Júnior",
+    "stack": "Front-End"
+  },
+  {
+    "id": 4,
+    "empresa": "DevFuture",
+    "cargo": "Desenvolvedora Web Trainee",
+    "requisitos": ["HTML", "CSS", "Flexbox", "Acessibilidade"],
+    "salario": 2500,
+    "modalidade": "Presencial",
+    "senioridade": "Trainee",
+    "stack": "Front-End"
+  },
+  {
+    "id": 5,
+    "empresa": "PixelHouse",
+    "cargo": "Estagiária Front-End",
+    "requisitos": ["HTML", "CSS", "Formulários", "LocalStorage"],
+    "salario": 1800,
+    "modalidade": "Remoto",
+    "senioridade": "Estágio",
+    "stack": "Front-End"
+  },
+  {
+    "id": 6,
+    "empresa": "NextPage",
+    "cargo": "Desenvolvedora JavaScript Júnior",
+    "requisitos": ["JavaScript", "Arrays", "POO", "Async/Await"],
+    "salario": 4000,
+    "modalidade": "Híbrido",
+    "senioridade": "Júnior",
+    "stack": "JavaScript"
   }
 ]
