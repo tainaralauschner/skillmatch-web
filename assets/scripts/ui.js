@@ -1,4 +1,3 @@
-// Funções para interação com a interface
 // Seleciona os elementos principais da tela
 export function selecionarElementos() {
   return {
