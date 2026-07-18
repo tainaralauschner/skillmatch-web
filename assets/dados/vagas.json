@@ -1,0 +1,16 @@
+[
+  {
+    "titulo": "Desenvolvedor Front-end",
+    "empresa": "TechNova",
+    "cidade": "São Paulo",
+    "modalidade": "Remoto",
+    "skills": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "titulo": "Analista de Dados",
+    "empresa": "DataFlow",
+    "cidade": "Rio de Janeiro",
+    "modalidade": "Híbrido",
+    "skills": ["SQL", "Python", "Power BI"]
+  }
+]
