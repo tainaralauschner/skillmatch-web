@@ -1,11 +1,11 @@
-console.log('SkillMatch Web inicializado');
-// Importa as funções de dados, motor e interface
+// Importa as funções responsáveis por dados e localStorage
 import {
   carregarVagas,
   salvarPerfil,
   buscarPerfilSalvo,
 } from "./dados.js";
 
+// Importa as funções do motor de compatibilidade
 import {
   criarCandidato,
   criarInstanciasDeVagas,
@@ -13,6 +13,7 @@ import {
   criarContadorDeAnalises,
 } from "./motor.js";
 
+// Importa as funções responsáveis pela interface
 import {
   selecionarElementos,
   preencherFormularioComPerfil,
@@ -29,16 +30,16 @@ import {
 // Seleciona os elementos da página
 const elementos = selecionarElementos();
 
-// Cria uma closure para contar quantas análises foram feitas na sessão
+// Closure para contar quantas análises foram feitas na sessão
 const contarAnalise = criarContadorDeAnalises();
 
-// Guarda as vagas carregadas do JSON
+// Armazena as vagas carregadas do JSON
 let vagas = [];
 
 // Inicia a aplicação
 inicializarAplicacao();
 
-// Configura o carregamento inicial da página
+// Configura o formulário, busca perfil salvo e carrega as vagas
 async function inicializarAplicacao() {
   elementos.formulario.addEventListener("submit", lidarComEnvioFormulario);
 
@@ -55,7 +56,7 @@ async function inicializarAplicacao() {
   }
 }
 
-// Carrega as vagas com fetch e trata os estados da requisição
+// Carrega as vagas com fetch e trata sucesso, vazio e erro
 async function carregarCatalogoDeVagas() {
   limparResultados(elementos);
   exibirStatus(elementos, "Carregando vagas...");
@@ -110,7 +111,7 @@ function lidarComEnvioFormulario(evento) {
   executarAnalise(candidato);
 }
 
-// Executa o motor de compatibilidade e atualiza a tela
+// Executa o motor de compatibilidade e renderiza os resultados
 function executarAnalise(candidato) {
   const totalAnalises = contarAnalise();
 
