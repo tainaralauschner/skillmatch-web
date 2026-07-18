@@ -1,4 +1,4 @@
-// Lógica principal do motor do projeto
+// Classe base para representar uma vaga
 export class Vaga {
   constructor({ id, empresa, cargo, requisitos, salario, modalidade }) {
     this.id = id;
@@ -9,10 +9,12 @@ export class Vaga {
     this.modalidade = modalidade;
   }
 
+  // Retorna o nome da vaga para exibição na tela
   getRotuloExibicao() {
     return this.cargo;
   }
 
+  // Calcula a compatibilidade entre o candidato e a vaga
   calcularCompatibilidade(candidato) {
     const habilidadesCandidato = normalizarLista(candidato.habilidades);
 
@@ -43,6 +45,7 @@ export class Vaga {
   }
 }
 
+// Classe específica para vagas front-end, herdando de Vaga
 export class VagaFrontEnd extends Vaga {
   constructor({ id, empresa, cargo, requisitos, salario, modalidade, senioridade, stack }) {
     super({ id, empresa, cargo, requisitos, salario, modalidade });
@@ -51,11 +54,13 @@ export class VagaFrontEnd extends Vaga {
     this.stack = stack;
   }
 
+  // Sobrescreve o rótulo para incluir senioridade e stack
   getRotuloExibicao() {
     return `${this.cargo} | ${this.senioridade} | ${this.stack}`;
   }
 }
 
+// Cria o objeto do candidato a partir dos dados do formulário
 export function criarCandidato(nome, area, habilidades, experienciaMeses) {
   return {
     nome,
@@ -65,14 +70,17 @@ export function criarCandidato(nome, area, habilidades, experienciaMeses) {
   };
 }
 
+// Transforma os dados do JSON em instâncias da classe VagaFrontEnd
 export function criarInstanciasDeVagas(vagas) {
   return vagas.map((vaga) => new VagaFrontEnd(vaga));
 }
 
+// Analisa todas as vagas usando o método da classe
 export function analisarVagas(candidato, vagas) {
   return vagas.map((vaga) => vaga.calcularCompatibilidade(candidato));
 }
 
+// Classifica o percentual em Alta, Média ou Baixa
 export function classificarCompatibilidade(percentual) {
   if (percentual >= 80) {
     return "Alta";
@@ -85,6 +93,7 @@ export function classificarCompatibilidade(percentual) {
   return "Baixa";
 }
 
+// Encontra a vaga com maior compatibilidade
 export function encontrarMelhorVaga(resultados, candidato) {
   return resultados.reduce((melhorResultado, resultadoAtual) => {
     if (resultadoAtual.percentual > melhorResultado.percentual) {
@@ -99,6 +108,7 @@ export function encontrarMelhorVaga(resultados, candidato) {
   }, resultados[0]);
 }
 
+// Gera recomendação com base nas habilidades que mais aparecem como faltantes
 export function gerarRecomendacaoDeEstudo(resultados) {
   const habilidadesFaltantes = resultados.reduce((lista, resultado) => {
     return lista.concat(resultado.habilidadesFaltantes);
@@ -140,6 +150,7 @@ export function gerarRecomendacaoDeEstudo(resultados) {
   };
 }
 
+// Processa a análise completa e executa um callback ao finalizar
 export function processarAnalise(candidato, vagas, aoFinalizar) {
   const resultados = analisarVagas(candidato, vagas);
   const melhorVaga = encontrarMelhorVaga(resultados, candidato);
@@ -159,6 +170,7 @@ export function processarAnalise(candidato, vagas, aoFinalizar) {
   return analise;
 }
 
+// Closure usada para contar análises feitas na sessão
 export function criarContadorDeAnalises() {
   let total = 0;
 
@@ -168,6 +180,7 @@ export function criarContadorDeAnalises() {
   };
 }
 
+// Critério de desempate entre vagas com o mesmo percentual
 function desempatarPorExperiencia(melhorResultado, resultadoAtual, candidato) {
   const experiencia = Number(candidato.experienciaMeses);
 
@@ -187,6 +200,7 @@ function desempatarPorExperiencia(melhorResultado, resultadoAtual, candidato) {
   return melhorResultado;
 }
 
+// Define peso para cada nível de senioridade
 function obterPesoSenioridade(senioridade) {
   const senioridadeNormalizada = normalizarTexto(senioridade);
 
@@ -204,10 +218,12 @@ function obterPesoSenioridade(senioridade) {
   }
 }
 
+// Normaliza uma lista de textos para facilitar a comparação
 function normalizarLista(lista) {
   return lista.map((item) => normalizarTexto(item));
 }
 
+// Remove espaços, acentos e diferença entre maiúsculas/minúsculas
 function normalizarTexto(texto) {
   return texto
     .toString()
