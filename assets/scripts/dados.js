@@ -1,4 +1,3 @@
-// Gerenciamento de dados e integração com o JSON
 // Chave usada para salvar o perfil no localStorage
 const CHAVE_PERFIL = "skillmatch-perfil";
 
