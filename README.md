@@ -256,7 +256,7 @@ O vídeo de apresentação demonstra:
 
 Link do vídeo:
 
-COLE_AQUI_O_LINK_DO_VIDEO
+https://drive.google.com/file/d/1eos4KzqMFc6ODgih8he_nyC8K_ZeX5rS/view?usp=drive_link
 
 ## Uso de IA
 
