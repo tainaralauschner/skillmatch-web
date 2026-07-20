@@ -124,6 +124,8 @@ O projeto utiliza conceitos trabalhados ao longo do módulo:
 - `async/await`;
 - tratamento de erros com `try/catch`.
 
+No uso de variáveis, priorizei `const` para valores que não precisam ser reatribuídos ao longo do código, deixando o uso de `let` apenas para situações em que o valor realmente muda durante a execução. Isso acontece, por exemplo, na variável `vagas`, que começa como um array vazio e depois recebe as vagas carregadas pelo `fetch`, no controle `formularioValido`, que pode mudar de `true` para `false` durante a validação, e no contador da closure, que é incrementado a cada nova análise.
+
 ### HTML
 
 A estrutura da página foi construída com HTML semântico, utilizando:
@@ -205,10 +207,15 @@ Esse ajuste foi testado no navegador e acompanhado pelo console das DevTools, se
 
 ## Git e branches
 
-O desenvolvimento foi organizado com Git e GitHub, usando uma branch principal de desenvolvimento e branches específicas para funcionalidades.
+O desenvolvimento foi organizado com Git e GitHub.
+
+A branch `main` é a branch final e padrão do repositório, contendo o código completo do projeto. Durante o desenvolvimento, utilizei a branch `develop` para concentrar os merges das funcionalidades antes de levar a versão final para a `main`.
+
+Também foram criadas branches específicas para funcionalidades, correções e documentação.
 
 Branches utilizadas:
 
+- `main`: branch final e padrão do repositório;
 - `develop`: branch principal de desenvolvimento;
 - `feat/estrutura-html`: estrutura inicial do HTML;
 - `feat/estilos-iniciais`: estilos iniciais e responsividade;
@@ -250,6 +257,19 @@ O vídeo de apresentação demonstra:
 Link do vídeo:
 
 COLE_AQUI_O_LINK_DO_VIDEO
+
+## Uso de IA
+
+Durante o desenvolvimento, utilizei IA como apoio para organizar melhor o processo e revisar pontos específicos do projeto.
+
+A IA foi utilizada para:
+
+- auxiliar na criação das tarefas do Trello, organizando um passo a passo mais seguro para o desenvolvimento;
+- tirar dúvidas sobre partes do código e sobre a aplicação dos conceitos estudados no módulo;
+- revisar e aperfeiçoar a documentação do README;
+- apoiar a identificação e correção de problemas, como a validação do campo experiência.
+
+Todo o código foi testado no navegador com Live Server, conferido no console das DevTools e adaptado ao escopo do Módulo 1, usando apenas HTML, CSS e JavaScript puro, sem frameworks, TypeScript, back-end ou bibliotecas externas.
 
 ## Melhorias futuras
 
